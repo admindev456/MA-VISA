@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   EDITORIAL DESIGN SYSTEM
+   Clean, minimal, publication-quality
+   Soft background, wider content
+   =================================== */
+
+@layer base {
+  :root {
+    --content-width: 760px;
+    --content-width-wide: 960px;
+    --section-gap: 3rem;
+    --bg-page: #f8f8f7;
+    --bg-section: #ffffff;
+    --bg-section-alt: #f5f5f4;
+    --border-light: #e8e8e6;
+    --border-section: #e0e0de;
+  }
+
+  html {
+    @apply antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply text-neutral-700 font-sans;
+    background-color: var(--bg-page);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* Typography - Editorial hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-neutral-900;
+    text-wrap: balance;
+  }
+
+  h1 { 
+    @apply text-2xl md:text-3xl font-semibold leading-tight;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 { 
+    @apply text-lg md:text-xl font-semibold leading-snug;
+    letter-spacing: -0.015em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  h3 { 
+    @apply text-base font-medium leading-snug text-neutral-800;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  h4 { 
+    @apply text-sm font-semibold text-neutral-800;
+  }
+
+  p {
+    @apply text-neutral-600;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  strong {
+    @apply text-neutral-800 font-semibold;
+  }
+
+  a {
+    @apply text-neutral-700 transition-colors duration-150;
+  }
+
+  a:hover {
+    @apply text-neutral-900;
+  }
+
+  ::selection {
+    @apply bg-amber-100 text-neutral-900;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-neutral-400 ring-offset-2;
+  }
+}
+
+/* ===================================
+   COMPONENT LAYER
+   =================================== */
+
+@layer components {
+  /* Content containers - wider */
+  .editorial-content {
+    max-width: var(--content-width);
+  }
+
+  .editorial-content-wide {
+    max-width: var(--content-width-wide);
+  }
+
+  /* Sections with background alternation */
+  .section-block {
+    @apply py-8 px-6 md:px-8 -mx-6 md:-mx-8;
+    background: var(--bg-section);
+  }
+
+  .section-block-alt {
+    @apply py-8 px-6 md:px-8 -mx-6 md:-mx-8;
+    background: var(--bg-section-alt);
+  }
+
+  /* Section divider - subtle but visible */
+  .section-divider {
+    @apply my-10;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-section), transparent);
+  }
+
+  .section-divider-solid {
+    @apply my-8;
+    height: 1px;
+    background: var(--border-section);
+  }
+
+  /* Section rule - thicker, more visible */
+  .section-rule {
+    @apply border-0 my-12;
+    height: 1px;
+    background: var(--border-section);
+  }
+
+  .section-rule-sm {
+    @apply border-0 my-8;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  /* Kicker/eyebrow text */
+  .kicker {
+    @apply text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-2;
+    letter-spacing: 0.08em;
+  }
+
+  /* Lead/intro paragraph */
+  .lead {
+    @apply text-base md:text-lg text-neutral-600 leading-relaxed;
+    max-width: 680px;
+  }
+
+  /* Body prose */
+  .prose-editorial {
+    max-width: var(--content-width);
+  }
+
+  .prose-editorial p {
+    @apply text-neutral-600 mb-4;
+    line-height: 1.75;
+  }
+
+  .prose-editorial p + p {
+    margin-top: 0;
+  }
+
+  /* Callouts - with subtle background */
+  .callout {
+    @apply pl-4 py-3 border-l-2 border-neutral-300 my-6 bg-neutral-50 rounded-r;
+  }
+
+  .callout-warning {
+    @apply pl-4 py-3 border-l-2 border-amber-400 my-6 bg-amber-50/50 rounded-r;
+  }
+
+  .callout-danger {
+    @apply pl-4 py-3 border-l-2 border-red-400 my-6 bg-red-50/60 rounded-r;
+  }
+
+  .callout-info {
+    @apply pl-4 py-3 border-l-2 border-blue-400 my-6 bg-blue-50/50 rounded-r;
+  }
+
+  /* Stats - compact */
+  .stat-inline {
+    @apply font-serif text-xl md:text-2xl font-semibold text-neutral-900;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    @apply text-2xs text-neutral-500 uppercase tracking-wider mt-0.5;
+  }
+
+  .stat-block {
+    @apply py-4;
+  }
+
+  .stat-block-value {
+    @apply font-serif text-2xl md:text-3xl font-bold text-neutral-900 leading-none;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-block-label {
+    @apply text-xs text-neutral-500 mt-1;
+  }
+
+  /* Cards - subtle shadow on soft bg */
+  .card-minimal {
+    @apply bg-white rounded-lg p-5 shadow-sm;
+  }
+
+  .card-bordered {
+    @apply border border-neutral-200 rounded-lg p-5 bg-white;
+  }
+
+  .card-hover {
+    @apply border border-neutral-200 rounded-lg p-4 bg-white transition-all duration-200 shadow-sm;
+  }
+
+  .card-hover:hover {
+    @apply border-neutral-300 shadow-md;
+  }
+
+  /* Badge - compact */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-2xs font-medium;
+  }
+
+  .badge-neutral {
+    @apply bg-neutral-100 text-neutral-600;
+  }
+
+  .badge-warning {
+    @apply bg-amber-50 text-amber-700;
+  }
+
+  .badge-danger {
+    @apply bg-red-50 text-red-700;
+  }
+
+  .badge-success {
+    @apply bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-category {
+    @apply bg-neutral-100 text-neutral-600 text-2xs uppercase tracking-wide font-semibold px-2 py-0.5;
+  }
+
+  /* Timeline category badges */
+  .badge-warning-cat { @apply bg-amber-50 text-amber-700; }
+  .badge-violation-cat { @apply bg-red-50 text-red-700; }
+  .badge-action-cat { @apply bg-emerald-50 text-emerald-700; }
+  .badge-regulatory-cat { @apply bg-neutral-100 text-neutral-600; }
+  .badge-attack-cat { @apply bg-rose-50 text-rose-700; }
+
+  /* Buttons - compact */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-150;
+  }
+
+  .btn-primary {
+    @apply bg-neutral-900 text-white hover:bg-neutral-800;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-50 hover:border-neutral-400 shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100;
+  }
+
+  /* Navigation */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md text-neutral-600 hover:bg-white hover:text-neutral-900 transition-colors;
+  }
+
+  .nav-item-active {
+    @apply bg-white text-neutral-900 shadow-sm;
+  }
+
+  /* Tables - on soft bg */
+  .data-table {
+    @apply w-full text-sm bg-white rounded-lg overflow-hidden;
+  }
+
+  .data-table thead {
+    @apply bg-neutral-50 border-b border-neutral-200;
+  }
+
+  .data-table th {
+    @apply px-4 py-2.5 text-left font-medium text-neutral-500 text-2xs uppercase tracking-wider;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-b border-neutral-100 text-neutral-700;
+  }
+
+  .data-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .data-table .cell-number {
+    @apply font-mono text-right tabular-nums;
+  }
+
+  .data-table .cell-highlight {
+    @apply font-semibold text-neutral-900;
+  }
+
+  /* Tabs */
+  .tab-list {
+    @apply flex gap-4 border-b border-neutral-200 bg-white -mx-6 px-6 md:-mx-8 md:px-8;
+  }
+
+  .tab {
+    @apply pb-2.5 text-sm font-medium text-neutral-500 border-b-2 border-transparent -mb-px transition-colors flex items-center gap-2;
+  }
+
+  .tab:hover {
+    @apply text-neutral-700;
+  }
+
+  .tab-active {
+    @apply text-neutral-900 border-neutral-800;
+  }
+
+  /* Filter chips */
+  .filter-chip {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border cursor-pointer transition-all;
+  }
+
+  .filter-chip-inactive {
+    @apply border-neutral-200 text-neutral-600 hover:border-neutral-400 bg-white shadow-sm;
+  }
+
+  .filter-chip-active {
+    @apply border-neutral-800 bg-neutral-800 text-white;
+  }
+
+  /* Legal citation */
+  .legal-citation {
+    @apply font-mono text-xs text-neutral-600 bg-white px-3 py-2 rounded border-l-2 border-neutral-400 shadow-sm;
+  }
+
+  .statute-ref {
+    @apply font-mono text-2xs text-neutral-500 bg-neutral-100 px-1.5 py-0.5 rounded;
+  }
+
+  /* Timeline */
+  .timeline-dot {
+    @apply w-2.5 h-2.5 rounded-full ring-3 ring-white;
+  }
+
+  .timeline-dot-warning { @apply bg-amber-400; }
+  .timeline-dot-violation { @apply bg-red-400; }
+  .timeline-dot-action { @apply bg-emerald-400; }
+  .timeline-dot-regulatory { @apply bg-neutral-400; }
+  .timeline-dot-attack { @apply bg-rose-500; }
+
+  /* Process steps */
+  .process-step {
+    @apply flex items-start gap-3 py-3;
+  }
+
+  .process-step-number {
+    @apply w-6 h-6 rounded-full bg-neutral-200 flex items-center justify-center text-xs font-semibold text-neutral-700 flex-shrink-0;
+  }
+
+  /* Text highlights */
+  .text-highlight {
+    @apply text-red-700 font-semibold;
+  }
+
+  .text-emphasis {
+    @apply text-neutral-900 font-semibold;
+  }
+
+  /* Metric grid - for key stats */
+  .metric-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 py-6 px-6 -mx-6 md:px-8 md:-mx-8 bg-white rounded-lg;
+    border: 1px solid var(--border-light);
+  }
+
+  .metric-item {
+    @apply text-center py-2;
+  }
+
+  .metric-item + .metric-item {
+    @apply border-l border-neutral-100;
+  }
+
+  /* Bar Chart - Horizontal */
+  .bar-chart-row {
+    @apply flex items-center gap-3;
+  }
+
+  .bar-chart-label {
+    @apply w-20 flex-shrink-0 text-neutral-600 text-right;
+  }
+
+  .bar-chart-bar {
+    @apply flex-1 h-6 bg-neutral-100 rounded overflow-hidden;
+  }
+
+  .bar-chart-fill {
+    @apply h-full rounded transition-all duration-300;
+  }
+
+  .bar-chart-value {
+    @apply w-16 text-right font-mono text-sm text-neutral-700 tabular-nums;
+  }
+
+  /* Stat Card */
+  .stat-card {
+    @apply bg-white rounded-lg p-4 border border-neutral-200;
+  }
+
+  .stat-value {
+    @apply font-serif text-2xl font-bold leading-none mb-1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-context {
+    @apply text-2xs text-neutral-500 mt-2 leading-snug;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-lg border border-neutral-200;
+  }
+
+  .card-warning {
+    @apply bg-amber-50 rounded-lg border border-amber-200;
+  }
+
+  .card-dark {
+    @apply bg-neutral-900 text-white rounded-lg;
+  }
+}
+
+/* ===================================
+   UTILITY LAYER
+   =================================== */
+
+@layer utilities {
+  .text-2xs {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-gap {
+    margin-top: var(--section-gap);
+  }
+
+  .section-gap-lg {
+    margin-top: 4rem;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 transparent;
+  }
+
+  /* Ring width 3 */
+  .ring-3 {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    color: black;
+    background: white;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 18pt; }
+  h2 { font-size: 14pt; margin-top: 18pt; }
+  h3 { font-size: 12pt; }
+
+  .section-rule, .section-divider {
+    border-color: #ccc;
+    margin: 18pt 0;
+  }
+
+  a[href^="http"]:after {
+    content: " [" attr(href) "]";
+    font-size: 8pt;
+    color: #666;
+  }
+
+  @page {
+    margin: 0.75in;
+  }
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
