@@ -398,7 +398,7 @@ export const getCategoryLabel = (category: TimelineCategory): string => {
   return labels[category];
 };
 
-export const getCategoryColor = (category: TimelineCategory): string => {
+export const getTimelineCategoryColor = (category: TimelineCategory): string => {
   const colors: Record<TimelineCategory, string> = {
     warning: 'amber',
     violation: 'red',
