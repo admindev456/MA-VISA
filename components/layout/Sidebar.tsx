@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
   { name: 'The Case', href: '/', icon: DocumentTextIcon },
   { name: 'Timeline', href: '/timeline', icon: CalendarDaysIcon, count: 23 },
   { name: 'Legal Analysis', href: '/legal-analysis', icon: ScaleIcon },
-  { name: 'Assessment', href: '/comprehensive-assessment', icon: ClipboardDocumentCheckIcon },
+  { name: 'Full Assessment', href: '/comprehensive-assessment', icon: ClipboardDocumentCheckIcon },
   { name: 'Evidence', href: '/evidence', icon: FolderOpenIcon, count: 12 },
   { name: 'Key Entities', href: '/entities', icon: BuildingLibraryIcon },
   { name: 'Financial', href: '/financial', icon: BanknotesIcon },
