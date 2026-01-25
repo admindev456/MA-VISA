@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { 
   timelineEvents, 
   getEventsByCategory, 
-  getCategoryLabel,
+  getTimelineCategoryLabel,
   TimelineCategory 
 } from '@/lib/data/timeline';
 import {
@@ -136,7 +136,7 @@ export default function TimelinePage() {
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-sm text-neutral-500">{event.date}</span>
                   <span className={`badge badge-${event.category}-cat`}>
-                    {getCategoryLabel(event.category)}
+                    {getTimelineCategoryLabel(event.category)}
                   </span>
                   {event.isKeyEvent && (
                     <span className="badge badge-neutral">Key</span>
