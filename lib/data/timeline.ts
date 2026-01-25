@@ -387,7 +387,7 @@ export const getKeyEvents = (): TimelineEvent[] => {
   return timelineEvents.filter(e => e.isKeyEvent);
 };
 
-export const getCategoryLabel = (category: TimelineCategory): string => {
+export const getTimelineCategoryLabel = (category: TimelineCategory): string => {
   const labels: Record<TimelineCategory, string> = {
     warning: 'Warning',
     violation: 'Violation',
