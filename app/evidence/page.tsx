@@ -126,9 +126,7 @@ export default function EvidencePage() {
               {filter.label}
               {filter.value !== 'all' && (
                 <span className="ml-1 opacity-75">
-                  ({filter.value === 'all' 
-                    ? evidenceDocuments.length 
-                    : getEvidenceByCategory(filter.value as EvidenceCategory).length})
+                  ({getEvidenceByCategory(filter.value as EvidenceCategory).length})
                 </span>
               )}
             </button>
