@@ -69,10 +69,10 @@ export default function EntitiesPage() {
         <p className="text-xs font-semibold text-slate-600 uppercase tracking-widest mb-4">
           Actors & Organizations
         </p>
-        <h1 className="text-4xl font-serif font-bold text-ink-900 leading-tight mb-4">
+        <h1 className="text-4xl font-serif font-bold text-neutral-900 leading-tight mb-4">
           Key Entities
         </h1>
-        <p className="text-xl text-ink-600 leading-relaxed max-w-3xl">
+        <p className="text-xl text-neutral-600 leading-relaxed max-w-3xl">
           A detailed profile of the {entities.length} principal actors in the Iraqi card 
           financing scheme, including payment networks, financial institutions, militia groups, 
           government bodies, and designated individuals.
@@ -93,10 +93,10 @@ export default function EntitiesPage() {
               }`}
             >
               <IconComponent className={`w-6 h-6 mx-auto mb-2 ${
-                activeFilter === filter.value ? 'text-amber-600' : 'text-ink-400'
+                activeFilter === filter.value ? 'text-amber-600' : 'text-neutral-400'
               }`} />
-              <div className="text-2xl font-serif font-bold text-ink-900">{count}</div>
-              <div className="text-xs text-ink-500 uppercase tracking-wide">{filter.label}</div>
+              <div className="text-2xl font-serif font-bold text-neutral-900">{count}</div>
+              <div className="text-xs text-neutral-500 uppercase tracking-wide">{filter.label}</div>
             </button>
           );
         })}
@@ -105,8 +105,8 @@ export default function EntitiesPage() {
       {/* Filters */}
       <section className="mb-8 no-print">
         <div className="flex items-center gap-3 mb-4">
-          <FunnelIcon className="w-5 h-5 text-ink-400" />
-          <h2 className="text-sm font-semibold text-ink-700 uppercase tracking-wider">
+          <FunnelIcon className="w-5 h-5 text-neutral-400" />
+          <h2 className="text-sm font-semibold text-neutral-700 uppercase tracking-wider">
             Filter by Type
           </h2>
         </div>
@@ -124,9 +124,7 @@ export default function EntitiesPage() {
               {filter.label}
               {filter.value !== 'all' && (
                 <span className="ml-1 opacity-75">
-                  ({filter.value === 'all' 
-                    ? entities.length 
-                    : getEntitiesByType(filter.value as EntityType).length})
+                  ({getEntitiesByType(filter.value as EntityType).length})
                 </span>
               )}
             </button>
@@ -165,11 +163,11 @@ export default function EntitiesPage() {
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-serif font-semibold text-ink-900 mb-1">
+              <h3 className="text-lg font-serif font-semibold text-neutral-900 mb-1">
                 {entity.name}
               </h3>
               {entity.shortName && (
-                <p className="text-sm text-ink-500 mb-2">
+                <p className="text-sm text-neutral-500 mb-2">
                   Also known as: <strong>{entity.shortName}</strong>
                 </p>
               )}
@@ -178,7 +176,7 @@ export default function EntitiesPage() {
                   {entity.designation}
                 </p>
               )}
-              <p className="text-sm text-ink-600 leading-relaxed mb-4 flex-grow">
+              <p className="text-sm text-neutral-600 leading-relaxed mb-4 flex-grow">
                 {entity.role}
               </p>
 
@@ -196,18 +194,18 @@ export default function EntitiesPage() {
 
               {/* Key Facts Preview */}
               <div className="mb-4">
-                <h4 className="text-xs font-semibold text-ink-600 uppercase tracking-wider mb-2">
+                <h4 className="text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-2">
                   Key Facts
                 </h4>
                 <ul className="space-y-1">
                   {entity.keyFacts.slice(0, 3).map((fact, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-ink-600">
-                      <span className="w-1.5 h-1.5 bg-ink-400 rounded-full mt-2 flex-shrink-0"></span>
+                    <li key={i} className="flex items-start gap-2 text-sm text-neutral-600">
+                      <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full mt-2 flex-shrink-0"></span>
                       <span className="line-clamp-1">{fact}</span>
                     </li>
                   ))}
                   {entity.keyFacts.length > 3 && (
-                    <li className="text-sm text-ink-400">
+                    <li className="text-sm text-neutral-400">
                       +{entity.keyFacts.length - 3} more facts...
                     </li>
                   )}
@@ -216,7 +214,7 @@ export default function EntitiesPage() {
 
               {/* Relationships Count */}
               {entity.relationships.length > 0 && (
-                <div className="flex items-center gap-2 text-sm text-ink-500 mt-auto pt-4 border-t border-ink-100">
+                <div className="flex items-center gap-2 text-sm text-neutral-500 mt-auto pt-4 border-t border-neutral-100">
                   <LinkIcon className="w-4 h-4" />
                   {entity.relationships.length} documented relationships
                 </div>
@@ -228,18 +226,18 @@ export default function EntitiesPage() {
 
       {/* Network Diagram Placeholder */}
       <section className="mt-12 card p-6">
-        <h2 className="text-xl font-serif font-semibold text-ink-900 mb-4">
+        <h2 className="text-xl font-serif font-semibold text-neutral-900 mb-4">
           Understanding the Relationships
         </h2>
         <div className="prose-legal space-y-4">
-          <p className="text-ink-700 leading-relaxed">
+          <p className="text-neutral-700 leading-relaxed">
             The entities documented above form a complex web of financial, operational, and 
             command relationships that enabled the militia financing scheme. At the center 
             are <strong>Visa and Mastercard</strong>, who provided the global payment 
             infrastructure. Their Iraqi banking partners—<strong>Yana, ISC (Qi Card), and 
             First Iraqi Bank</strong>—served as the local issuers and acquirers.
           </p>
-          <p className="text-ink-700 leading-relaxed">
+          <p className="text-neutral-700 leading-relaxed">
             The <strong>Popular Mobilization Forces (PMF)</strong> served as the umbrella 
             organization through which Iran-backed militias—including <strong>Kata'ib 
             Hezbollah, Asa'ib Ahl al-Haq, and Badr Organization</strong>—received salary 
@@ -249,33 +247,33 @@ export default function EntitiesPage() {
         </div>
         
         {/* Simplified Relationship Diagram */}
-        <div className="mt-6 p-6 bg-ink-50 rounded-xl">
-          <h3 className="text-sm font-semibold text-ink-700 uppercase tracking-wider mb-4 text-center">
+        <div className="mt-6 p-6 bg-neutral-50 rounded-xl">
+          <h3 className="text-sm font-semibold text-neutral-700 uppercase tracking-wider mb-4 text-center">
             Financial Flow Structure
           </h3>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
             <div className="card p-4 bg-blue-50 border-blue-200">
               <CreditCardIcon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-              <div className="font-semibold text-ink-900">Visa / MC</div>
-              <div className="text-xs text-ink-500">Payment Networks</div>
+              <div className="font-semibold text-neutral-900">Visa / MC</div>
+              <div className="text-xs text-neutral-500">Payment Networks</div>
             </div>
-            <div className="text-2xl text-ink-300">→</div>
+            <div className="text-2xl text-neutral-300">→</div>
             <div className="card p-4 bg-emerald-50 border-emerald-200">
               <BuildingLibraryIcon className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-              <div className="font-semibold text-ink-900">Iraqi Banks</div>
-              <div className="text-xs text-ink-500">Yana, ISC, FIB</div>
+              <div className="font-semibold text-neutral-900">Iraqi Banks</div>
+              <div className="text-xs text-neutral-500">Yana, ISC, FIB</div>
             </div>
-            <div className="text-2xl text-ink-300">→</div>
+            <div className="text-2xl text-neutral-300">→</div>
             <div className="card p-4 bg-red-50 border-red-200">
               <ShieldExclamationIcon className="w-8 h-8 text-red-600 mx-auto mb-2" />
-              <div className="font-semibold text-ink-900">PMF / Militias</div>
-              <div className="text-xs text-ink-500">200,000+ cardholders</div>
+              <div className="font-semibold text-neutral-900">PMF / Militias</div>
+              <div className="text-xs text-neutral-500">200,000+ cardholders</div>
             </div>
-            <div className="text-2xl text-ink-300">→</div>
+            <div className="text-2xl text-neutral-300">→</div>
             <div className="card p-4 bg-rose-50 border-rose-200">
               <ExclamationTriangleIcon className="w-8 h-8 text-rose-600 mx-auto mb-2" />
-              <div className="font-semibold text-ink-900">IRGC-QF</div>
-              <div className="text-xs text-ink-500">Ultimate Beneficiary</div>
+              <div className="font-semibold text-neutral-900">IRGC-QF</div>
+              <div className="text-xs text-neutral-500">Ultimate Beneficiary</div>
             </div>
           </div>
         </div>
@@ -289,7 +287,7 @@ export default function EntitiesPage() {
             <h3 className="font-semibold text-danger mb-2">
               Sanctions Implications
             </h3>
-            <p className="text-sm text-ink-700 mb-4">
+            <p className="text-sm text-neutral-700 mb-4">
               Several entities profiled above are designated under U.S. sanctions programs, 
               including OFAC's SDN List and the State Department's FTO designations. Engaging 
               in financial transactions with these entities—or their agents—constitutes a 
@@ -306,7 +304,7 @@ export default function EntitiesPage() {
       </section>
 
       {/* Navigation */}
-      <nav className="flex justify-between mt-10 pt-8 border-t border-ink-200 no-print">
+      <nav className="flex justify-between mt-10 pt-8 border-t border-neutral-200 no-print">
         <Link href="/evidence" className="btn btn-ghost">
           <ArrowLeftIcon className="w-4 h-4 mr-2" />
           Evidence
