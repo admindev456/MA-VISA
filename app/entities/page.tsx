@@ -18,7 +18,6 @@ import {
   FunnelIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  LinkIcon,
   ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 
@@ -41,15 +40,10 @@ const typeFilters: { value: EntityType | 'all'; label: string }[] = [
 
 export default function EntitiesPage() {
   const [activeFilter, setActiveFilter] = useState<EntityType | 'all'>('all');
-  const [selectedEntity, setSelectedEntity] = useState<string | null>(null);
 
   const filteredEntities = activeFilter === 'all' 
     ? entities 
     : getEntitiesByType(activeFilter);
-
-  const selected = selectedEntity 
-    ? entities.find(e => e.id === selectedEntity) 
-    : null;
 
   const getTypeBadge = (type: EntityType) => {
     const styles: Record<EntityType, string> = {
@@ -192,33 +186,20 @@ export default function EntitiesPage() {
                 </div>
               )}
 
-              {/* Key Facts Preview */}
-              <div className="mb-4">
+              {/* Key Facts */}
+              <div>
                 <h4 className="text-xs font-semibold text-neutral-600 uppercase tracking-wider mb-2">
                   Key Facts
                 </h4>
-                <ul className="space-y-1">
-                  {entity.keyFacts.slice(0, 3).map((fact, i) => (
+                <ul className="space-y-1.5">
+                  {entity.keyFacts.map((fact, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-neutral-600">
                       <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="line-clamp-1">{fact}</span>
+                      <span>{fact}</span>
                     </li>
                   ))}
-                  {entity.keyFacts.length > 3 && (
-                    <li className="text-sm text-neutral-400">
-                      +{entity.keyFacts.length - 3} more facts...
-                    </li>
-                  )}
                 </ul>
               </div>
-
-              {/* Relationships Count */}
-              {entity.relationships.length > 0 && (
-                <div className="flex items-center gap-2 text-sm text-neutral-500 mt-auto pt-4 border-t border-neutral-100">
-                  <LinkIcon className="w-4 h-4" />
-                  {entity.relationships.length} documented relationships
-                </div>
-              )}
             </div>
           );
         })}
