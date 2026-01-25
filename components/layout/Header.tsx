@@ -13,7 +13,7 @@ const navItems = [
   { name: 'The Case', href: '/' },
   { name: 'Timeline', href: '/timeline' },
   { name: 'Legal', href: '/legal-analysis' },
-  { name: 'Assessment', href: '/comprehensive-assessment' },
+  { name: 'Full Assessment', href: '/comprehensive-assessment' },
   { name: 'Evidence', href: '/evidence' },
   { name: 'Entities', href: '/entities' },
   { name: 'Financial', href: '/financial' },
