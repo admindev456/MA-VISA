@@ -104,4 +104,3 @@ export function CardFooter({ className, children }: CardFooterProps) {
     </div>
   );
 }
-
