@@ -20,4 +20,3 @@ export default function TimelineContainer({ className, children }: TimelineConta
     </div>
   );
 }
-
