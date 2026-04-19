@@ -24,15 +24,17 @@ export default function DocumentCard({
   onClick,
   className,
 }: DocumentCardProps) {
-  const categoryConfig = {
-    audit: { label: 'Audit', color: 'amber' as const },
-    warning: { label: 'Warning', color: 'danger' as const },
-    congressional: { label: 'Congressional', color: 'navy' as const },
-    financial: { label: 'Financial', color: 'success' as const },
-    media: { label: 'Media', color: 'gray' as const },
+  const categoryConfig: Record<EvidenceCategory, { label: string; color: 'amber' | 'danger' | 'navy' | 'success' | 'gray' }> = {
+    audit: { label: 'Audit', color: 'amber' },
+    warning: { label: 'Warning', color: 'danger' },
+    congressional: { label: 'Congressional', color: 'navy' },
+    financial: { label: 'Financial', color: 'success' },
+    media: { label: 'Media', color: 'gray' },
+    litigation: { label: 'Litigation', color: 'danger' },
+    regulatory: { label: 'Regulatory', color: 'navy' },
   };
 
-  const config = categoryConfig[category];
+  const config = categoryConfig[category] ?? { label: 'Document', color: 'gray' as const };
 
   return (
     <div
