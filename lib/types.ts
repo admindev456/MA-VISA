@@ -58,10 +58,13 @@ export interface LegalPrecedent {
   relevance: string;
   holding: string;
   tags: string[];
+  status?: 'pending' | 'decided' | 'settled';
+  adverse?: boolean;
+  distinguishingFactors?: string;
 }
 
 // Evidence Types
-export type EvidenceCategory = 'audit' | 'warning' | 'congressional' | 'financial' | 'media';
+export type EvidenceCategory = 'audit' | 'warning' | 'congressional' | 'financial' | 'media' | 'litigation' | 'regulatory';
 
 export interface EvidenceDocument {
   id: string;
