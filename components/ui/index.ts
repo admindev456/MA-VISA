@@ -4,4 +4,3 @@ export { default as Badge, DotBadge } from './Badge';
 export { default as Tabs, TabList, TabTrigger, TabContent } from './Tabs';
 export { default as Modal, ModalFooter } from './Modal';
 export { default as FilterToggle, ViewToggle } from './FilterToggle';
-
