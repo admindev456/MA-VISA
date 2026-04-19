@@ -13,6 +13,17 @@ export default function ComprehensiveAssessmentPage() {
         <p className="lead mt-3">
           A comprehensive analysis of sanctions evasion, material support to terrorism, and regulatory failures.
         </p>
+        <div className="mt-4 p-3 bg-neutral-50 border-l-2 border-neutral-300 rounded-r text-sm text-neutral-600">
+          <p className="mb-1">
+            <strong className="text-neutral-800">Note on the &quot;Gap Period&quot; duration.</strong> This assessment references an
+            <strong> 18-month</strong> delay. That figure anchors to the <strong>Fall 2023 specific-militia intelligence briefing</strong> →
+            March 2025 enforcement action. The structured timeline in{' '}
+            <Link href="/timeline" className="underline hover:text-neutral-900">the timeline database</Link>{' '}
+            uses a <strong>22-month</strong> window anchored to the earlier <strong>May 2023</strong> initial Treasury/NY Fed inquiry. Both
+            durations are accurate for their respective start dates; the 22-month figure is the canonical Gap Period when first regulatory
+            contact is used as the trigger.
+          </p>
+        </div>
       </header>
 
       {/* Executive Summary */}
@@ -967,4 +978,3 @@ export default function ComprehensiveAssessmentPage() {
     </article>
   );
 }
-
