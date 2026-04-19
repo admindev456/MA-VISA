@@ -31,4 +31,3 @@ export default function TimelineFilter({ selected, onChange }: TimelineFilterPro
     </div>
   );
 }
-
