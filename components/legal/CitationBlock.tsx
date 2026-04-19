@@ -55,4 +55,3 @@ export function InlineCitation({ citation, className }: InlineCitationProps) {
     </code>
   );
 }
-
