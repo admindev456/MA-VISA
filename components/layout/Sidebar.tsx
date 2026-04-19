@@ -11,6 +11,13 @@ import {
   BanknotesIcon,
   BookOpenIcon,
   ClipboardDocumentCheckIcon,
+  SparklesIcon,
+  ShieldCheckIcon,
+  ShieldExclamationIcon,
+  ExclamationCircleIcon,
+  DocumentMagnifyingGlassIcon,
+  BuildingOffice2Icon,
+  UserCircleIcon,
 } from '@heroicons/react/24/outline';
 
 interface NavItem {
@@ -22,13 +29,24 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: 'The Case', href: '/', icon: DocumentTextIcon },
-  { name: 'Timeline', href: '/timeline', icon: CalendarDaysIcon, count: 23 },
+  // --- Litigation-Ready Deliverables (Round 3) ---
+  { name: 'Research Narrative', href: '/research-narrative', icon: DocumentTextIcon },
+  { name: 'Pleading Checklist', href: '/pleading-checklist', icon: ClipboardDocumentCheckIcon },
+  { name: 'Authorities Table', href: '/authorities', icon: BookOpenIcon },
+  { name: 'Discovery Targets', href: '/discovery-targets', icon: DocumentMagnifyingGlassIcon },
+  { name: 'Defendant Structures', href: '/defendants', icon: BuildingOffice2Icon },
+  // --- Existing deliverables ---
+  { name: '2026 Developments', href: '/developments-2026', icon: SparklesIcon, count: 9 },
+  { name: 'Compliance Gap', href: '/compliance-gap', icon: ShieldCheckIcon, count: 8 },
+  { name: 'Attacks Ledger', href: '/attacks-ledger', icon: ShieldExclamationIcon, count: 7 },
+  { name: 'ATA Landscape', href: '/ata-litigation-landscape', icon: ExclamationCircleIcon },
+  { name: 'Timeline', href: '/timeline', icon: CalendarDaysIcon, count: 57 },
   { name: 'Legal Analysis', href: '/legal-analysis', icon: ScaleIcon },
   { name: 'Full Assessment', href: '/comprehensive-assessment', icon: ClipboardDocumentCheckIcon },
-  { name: 'Evidence', href: '/evidence', icon: FolderOpenIcon, count: 12 },
+  { name: 'Evidence', href: '/evidence', icon: FolderOpenIcon, count: 63 },
   { name: 'Key Entities', href: '/entities', icon: BuildingLibraryIcon },
   { name: 'Financial', href: '/financial', icon: BanknotesIcon },
-  { name: 'Precedents', href: '/precedents', icon: BookOpenIcon, count: 9 },
+  { name: 'Precedents', href: '/precedents', icon: BookOpenIcon, count: 35 },
 ];
 
 export function Sidebar() {
