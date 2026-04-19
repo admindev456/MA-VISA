@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { legalFrameworks, legalPrecedents, damageScenarios } from '@/lib/data/legal';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ataHurdles, regulatoryLeverageTheory, atasol } from '@/lib/data/financial';
+import { ArrowLeftIcon, ArrowRightIcon, ExclamationCircleIcon, ShieldCheckIcon, ScaleIcon, ClockIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 export default function LegalAnalysisPage() {
   const [activeFramework, setActiveFramework] = useState('ata');
@@ -917,6 +918,196 @@ export default function LegalAnalysisPage() {
           <p className="text-neutral-800 leading-relaxed">
             The intervention of 2023–2025 highlights the necessity for a <strong>modernization of 31 CFR § 1028.210</strong> to include mandates for real-time monitoring of systemic, market-wide anomalies that transcend individual cardholder behavior.
           </p>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* LITIGATION STRATEGY & HURDLES (Research 3 integration)         */}
+      {/* ============================================================ */}
+
+      <section className="section-block mt-12 mb-10">
+        <div className="flex items-center gap-2 mb-4">
+          <ScaleIcon className="w-6 h-6 text-neutral-700" />
+          <h2 className="font-serif text-2xl font-bold text-neutral-900 m-0">
+            Litigation Strategy &amp; Hurdles
+          </h2>
+        </div>
+
+        <p className="lead mt-3 mb-6">
+          An honest doctrinal assessment for the lawfirm. The ATA pathway faces four compounding
+          hurdles — but a careful complaint mirroring <em>Atchley</em> / <em>Zobay</em> /
+          <em>Raanan</em> has a plausible route through, and the regulatory + securities +
+          public-pressure leverage is strong even if the ATA case does not reach trial.
+        </p>
+
+        {/* Four hurdles */}
+        <div className="flex items-center gap-2 mb-3">
+          <ExclamationCircleIcon className="w-5 h-5 text-red-700" />
+          <h3 className="font-serif text-xl font-bold text-neutral-900 m-0">
+            The Four Compounding Hurdles for a Direct ATA Complaint
+          </h3>
+        </div>
+        <p className="text-neutral-700 mb-4">
+          A hypothetical complaint alleging that card networks processed payments to Iraqi
+          Shi&apos;a militia groups faces four compounding hurdles. Each is summarized below with
+          its plaintiff counter.
+        </p>
+
+        <div className="space-y-3 mb-8">
+          {ataHurdles.map((h, idx) => (
+            <div
+              key={h.id}
+              className="bg-white border border-neutral-200 rounded-lg overflow-hidden"
+            >
+              <div className="flex items-start gap-3 p-4 border-b border-neutral-200 bg-red-50">
+                <div className="flex items-center justify-center w-7 h-7 rounded-full bg-red-200 text-red-900 font-semibold text-sm flex-shrink-0">
+                  {idx + 1}
+                </div>
+                <div className="flex-1">
+                  <p className="font-semibold text-red-900 mb-1 mt-0">{h.name}</p>
+                  <p className="text-xs text-red-800 mb-0">{h.doctrine}</p>
+                </div>
+              </div>
+              <div className="p-4 bg-emerald-50">
+                <p className="text-xs font-semibold text-emerald-900 mb-1">OUR COUNTER</p>
+                <p className="text-sm text-emerald-900 mb-0">{h.plaintiffCounter}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Three-pillar settlement leverage */}
+        <div className="flex items-center gap-2 mb-3">
+          <ShieldCheckIcon className="w-5 h-5 text-emerald-700" />
+          <h3 className="font-serif text-xl font-bold text-neutral-900 m-0">
+            The Three Pillars of Real Settlement Leverage
+          </h3>
+        </div>
+        <p className="text-neutral-700 mb-4">
+          Even if the direct ATA case stalls, three parallel pressure vectors produce settlement
+          leverage. The lawfirm should pursue all three in parallel rather than betting on a
+          courtroom ATA verdict.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+          {regulatoryLeverageTheory.map((pillar, idx) => (
+            <div
+              key={pillar.id}
+              className="bg-white border border-neutral-200 rounded-lg p-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-navy-100 text-navy-800 font-semibold text-xs flex-shrink-0">
+                  {idx + 1}
+                </div>
+                <h4 className="text-sm font-semibold text-neutral-900 m-0">{pillar.name}</h4>
+              </div>
+              <p className="text-xs text-neutral-700 mb-2">{pillar.mechanism}</p>
+              <p className="text-xs text-neutral-600 mb-2">
+                <strong className="text-neutral-800">Estimated leverage:</strong>{' '}
+                {pillar.estimatedLeverage}
+              </p>
+              <p className="text-xs text-neutral-500 italic mb-0">
+                Regulators: {pillar.regulators.join(', ')}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Atchley-style complaint architecture */}
+        <div className="flex items-center gap-2 mb-3">
+          <SparklesIcon className="w-5 h-5 text-emerald-700" />
+          <h3 className="font-serif text-xl font-bold text-neutral-900 m-0">
+            Atchley-Style Complaint Architecture
+          </h3>
+        </div>
+        <p className="text-neutral-700 mb-4">
+          The D.C. Circuit&apos;s January 23, 2026 reversal in <em>Atchley v. AstraZeneca</em>{' '}
+          after SCOTUS GVR confirms that &quot;unusual way&quot; affirmative misconduct survives
+          <em> Taamneh</em>. Our complaint should mirror Atchley&apos;s architecture:
+        </p>
+
+        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-5 mb-8">
+          <ol className="list-decimal pl-6 space-y-2 text-sm text-emerald-900 mb-0">
+            <li>
+              <strong>Plead specific merchant-level relationships</strong> — Al Saqi Electronic
+              Payment Company, named UAE merchants Mastercard listed on MATCH in March 2025,
+              First Iraqi Bank (Visa Direct), International Smart Card (Qi Card). The Treasury
+              blacklisting of Al Saqi is a Yana-equivalent factual anchor for Visa.
+            </li>
+            <li>
+              <strong>Plead &quot;unusual way&quot; affirmative conduct</strong> — (a) Yana
+              reinstatement after August 2023 zero-controls audit; (b) continued processing of
+              known-militia-linked merchant populations after the Fall 2023 Treasury briefing;
+              (c) financial incentives offered to boost Iraqi transaction volume during the
+              surge (per IFMAT). Each is an affirmative act, not passive inaction.
+            </li>
+            <li>
+              <strong>Anchor to Freeman II&apos;s Gold Star plaintiff structure</strong> — the
+              ~300 Gold Star families in Freeman II v. HSBC E.D.N.Y. 18-cv-07359 offer a
+              tested plaintiff-coalition model. Coordinate with Kreindler &amp; Kreindler whose
+              January 22, 2026 FSIA suit against Iran establishes the upstream Tower 22
+              attribution judgment.
+            </li>
+            <li>
+              <strong>Specific-attack nexus</strong> — Tower 22 (Jan 28, 2024); Al-Asad ballistic
+              missile (Nov 20, 2023); Erbil drone (Dec 25, 2023); Al-Asad rocket (Aug 5, 2024);
+              Rumalyn drone (Aug 9, 2024). Each has named wounded plaintiffs and a public
+              attribution chain — essential for Taamneh&apos;s specific-attack requirement.
+            </li>
+            <li>
+              <strong>Ongoing-violation framing</strong> — April 11, 2026 FDD Long War Journal
+              evidence that Mastercard is still a named militia fundraising channel converts the
+              case from historical compliance failure to ongoing willful conduct. Supports
+              continuing-violation tolling and defeats remediation defenses.
+            </li>
+            <li>
+              <strong>Venue selection</strong> — D.D.C. (Atchley jurisdiction) is more favorable
+              post-Taamneh than the Second Circuit. S.D.N.Y. (Raanan) has produced mixed
+              results. D.N.D. (Balva) is an option for forum-innovation.
+            </li>
+          </ol>
+        </div>
+
+        {/* JASTA SOL */}
+        <div className="flex items-center gap-2 mb-3">
+          <ClockIcon className="w-5 h-5 text-amber-700" />
+          <h3 className="font-serif text-xl font-bold text-neutral-900 m-0">
+            JASTA 10-Year Statute of Limitations
+          </h3>
+        </div>
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+          <p className="text-sm text-amber-900 mb-2">
+            <strong>Critical deadline:</strong> {atasol.criticalDate} (for pre-September 28, 2016
+            injury claims).
+          </p>
+          <p className="text-sm text-amber-900 mb-0">
+            <strong>Good news for our case:</strong> {atasol.relevanceToVisaMastercard}
+          </p>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 bg-neutral-50 border border-neutral-200 rounded-lg p-5">
+          <h4 className="text-sm font-semibold text-neutral-900 mt-0 mb-2">Further reading</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <Link
+              href="/ata-litigation-landscape"
+              className="text-sm text-navy-700 hover:text-navy-900 underline"
+            >
+              → Full ATA litigation landscape
+            </Link>
+            <Link
+              href="/compliance-gap"
+              className="text-sm text-navy-700 hover:text-navy-900 underline"
+            >
+              → Compliance-gap documentation
+            </Link>
+            <Link
+              href="/attacks-ledger"
+              className="text-sm text-navy-700 hover:text-navy-900 underline"
+            >
+              → Two-year attack chronicle
+            </Link>
+          </div>
         </div>
       </section>
 
