@@ -7,6 +7,9 @@ import {
   getEvidenceByCategory, 
   getCategoryLabel, 
   getCategoryColor,
+  getExhibitNumber,
+  getSourceTier,
+  getSourceTierLabel,
   EvidenceCategory 
 } from '@/lib/data/evidence';
 import {
@@ -22,6 +25,8 @@ import {
   CheckCircleIcon,
   XMarkIcon,
   EyeIcon,
+  ScaleIcon,
+  ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 
 const categoryIcons: Record<EvidenceCategory, React.ComponentType<{ className?: string }>> = {
@@ -30,6 +35,8 @@ const categoryIcons: Record<EvidenceCategory, React.ComponentType<{ className?: 
   congressional: BuildingLibraryIcon,
   financial: ChartBarIcon,
   media: NewspaperIcon,
+  litigation: ScaleIcon,
+  regulatory: ShieldCheckIcon,
 };
 
 const categoryFilters: { value: EvidenceCategory | 'all'; label: string }[] = [
@@ -39,6 +46,8 @@ const categoryFilters: { value: EvidenceCategory | 'all'; label: string }[] = [
   { value: 'congressional', label: 'Congressional' },
   { value: 'financial', label: 'Financial' },
   { value: 'media', label: 'Media' },
+  { value: 'litigation', label: 'Litigation' },
+  { value: 'regulatory', label: 'Regulatory' },
 ];
 
 export default function EvidencePage() {
@@ -60,8 +69,20 @@ export default function EvidencePage() {
       congressional: 'bg-emerald-100 text-emerald-800',
       financial: 'bg-purple-100 text-purple-800',
       media: 'bg-slate-100 text-slate-800',
+      litigation: 'bg-rose-100 text-rose-800',
+      regulatory: 'bg-indigo-100 text-indigo-800',
     };
     return styles[category];
+  };
+
+  const getTierBadge = (id: string) => {
+    const tier = getSourceTier(id);
+    const styles = {
+      primary: 'bg-emerald-100 text-emerald-800',
+      secondary: 'bg-blue-100 text-blue-800',
+      tertiary: 'bg-amber-100 text-amber-800',
+    };
+    return styles[tier];
   };
 
   return (
@@ -82,7 +103,7 @@ export default function EvidencePage() {
       </header>
 
       {/* Overview Cards */}
-      <section className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+      <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-10">
         {categoryFilters.filter(f => f.value !== 'all').map((filter) => {
           const count = getEvidenceByCategory(filter.value as EvidenceCategory).length;
           const IconComponent = categoryIcons[filter.value as EvidenceCategory];
@@ -146,13 +167,19 @@ export default function EvidencePage() {
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${getCategoryBadge(doc.category)}`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="flex flex-wrap gap-1.5">
                     <span className={`badge text-2xs ${getCategoryBadge(doc.category)}`}>
                       {getCategoryLabel(doc.category)}
                     </span>
+                    <span className={`badge text-2xs ${getTierBadge(doc.id)}`}>
+                      {getSourceTierLabel(getSourceTier(doc.id))}
+                    </span>
+                    <span className="badge text-2xs bg-neutral-100 text-neutral-700 font-mono">
+                      {getExhibitNumber(doc.id)}
+                    </span>
                   </div>
                 </div>
-                <span className="text-sm text-neutral-500">{doc.date}</span>
+                <span className="text-sm text-neutral-500 whitespace-nowrap">{doc.date}</span>
               </div>
 
               {/* Content */}
