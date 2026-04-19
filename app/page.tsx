@@ -936,21 +936,27 @@ export default function ExecutiveSummaryPage() {
           </p>
           
           <p>
-            Could payment processing services constitute "material support"? The <em>Wildman v. Deutsche Bank</em> 
-            decision (Second Circuit, 2025) suggests caution. The court dismissed Justice Against Sponsors of 
-            Terrorism Act (JASTA) claims against Deutsche Bank, Standard Chartered, and Danske Bank, ruling 
-            that plaintiffs failed to prove the banks had "general awareness of their roles in illegal activity" 
-            or that they "substantially assisted that illegal activity". The panel applied the <em>Twitter v. 
-            Taamneh</em> foreseeability principle: "a defendant is not liable without understanding the 
-            foreseeable consequences of the defendant's actions".
+            Could payment processing services constitute "material support"? The <em>Ashley v. Deutsche Bank 
+            Aktiengesellschaft</em> decision (Second Circuit, July 21, 2025) suggests caution. The court affirmed 
+            dismissal of Justice Against Sponsors of Terrorism Act (JASTA) claims against Deutsche Bank, 
+            Standard Chartered, and Danske Bank brought by U.S. service members injured in Afghanistan by IEDs 
+            made from fertilizer supplied by Pakistani companies banked by the defendants—holding that plaintiffs 
+            failed to plead either "general awareness of their roles in illegal activity" or "substantial 
+            assistance" to the underlying terrorist acts. Applying <em>Twitter v. Taamneh</em>, the panel 
+            rejected a "fungibility" theory and concluded that "indifference is not enough."
           </p>
           
           <p>
-            However, <em>Wildman</em> involved general commercial banking services where the connection to 
-            terrorism was attenuated through multiple intermediaries. The Iraq scheme is factually 
-            distinguishable—Treasury and Federal Reserve officials directly warned Visa and Mastercard about 
-            militia involvement. This actual notice of foreseeable harm distinguishes the case from 
-            <em>Wildman</em>'s lack-of-awareness fact pattern.
+            However, <em>Ashley</em> involved a highly attenuated diversion chain — Pakistani fertilizer companies 
+            whose product was diverted by unaffiliated third parties to Taliban/Haqqani IED-makers in Afghanistan. 
+            The Iraq scheme is factually distinguishable: Treasury and Federal Reserve officials <strong>directly 
+            warned Visa and Mastercard by name</strong> about militia involvement in the cross-border card surge, 
+            and identified specific groups (Kata'ib Hezbollah, Badr Brigade, Asa'ib Ahl al-Haq). This actual 
+            notice of foreseeable harm — coupled with the networks' 22-month continued processing and the 
+            affirmative reinstatement of Yana after its zero-controls audit — distinguishes the case from 
+            <em>Ashley</em>'s passive-banking fact pattern and places it closer to <em>Atchley v. AstraZeneca</em> 
+            (D.C. Cir. Jan 23, 2026), which the D.C. Circuit held survived <em>Taamneh</em> on an 
+            affirmative-misconduct theory.
           </p>
           
           <p>
@@ -1354,17 +1360,51 @@ export default function ExecutiveSummaryPage() {
 
       <div className="section-divider"></div>
 
+      {/* Litigation-Ready Deliverables */}
+      <section className="mb-8">
+        <h2 className="text-base font-medium text-neutral-800 mb-1">
+          Litigation-Ready Deliverables
+        </h2>
+        <p className="text-xs text-neutral-500 mb-3">
+          Cite-ready, discovery-ready, and drafting-ready research products for counsel.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {[
+            { href: '/research-narrative', label: 'Research Narrative', count: '72 ¶¶ Statement of Facts' },
+            { href: '/pleading-checklist', label: 'Pleading Checklist', count: 'Halberstam factor map' },
+            { href: '/authorities', label: 'Authorities Table', count: 'Bluebook cite-ready' },
+            { href: '/discovery-targets', label: 'Discovery Targets', count: 'Custodians + documents' },
+            { href: '/defendants', label: 'Defendant Structures', count: 'Proper captioning' },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="card-hover group border-2 border-emerald-200 bg-emerald-50/40"
+            >
+              <div className="text-sm font-medium text-neutral-900 group-hover:text-neutral-700">
+                {item.label}
+              </div>
+              <div className="text-2xs text-neutral-500">{item.count}</div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Navigation */}
       <section className="mb-6">
         <h2 className="text-base font-medium text-neutral-800 mb-3">Explore Documentation</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {[
+            { href: '/developments-2026', label: '2026 Developments', count: '9 sections' },
+            { href: '/compliance-gap', label: 'Compliance Gap', count: 'Claim vs. reality' },
+            { href: '/attacks-ledger', label: 'Attacks Ledger', count: '2-year chronicle' },
+            { href: '/ata-litigation-landscape', label: 'ATA Landscape', count: 'Strategy map' },
             { href: '/timeline', label: 'Timeline', count: `${timelineEvents.length} events` },
-            { href: '/legal-analysis', label: 'Legal Analysis', count: '3 frameworks' },
-            { href: '/evidence', label: 'Evidence', count: '12 documents' },
-            { href: '/entities', label: 'Key Entities', count: '20+ parties' },
+            { href: '/legal-analysis', label: 'Legal Analysis', count: '3 frameworks + strategy' },
+            { href: '/evidence', label: 'Evidence', count: '63 documents' },
+            { href: '/entities', label: 'Key Entities', count: '50+ parties' },
             { href: '/financial', label: 'Financial', count: 'Damages' },
-            { href: '/precedents', label: 'Precedents', count: '9 cases' },
+            { href: '/precedents', label: 'Precedents', count: '35+ cases' },
           ].map((item) => (
             <Link 
               key={item.href}
