@@ -11,19 +11,19 @@ import {
   BanknotesIcon,
   BookOpenIcon,
   ClipboardDocumentCheckIcon,
-  SparklesIcon,
+  DocumentMagnifyingGlassIcon,
+  BuildingOffice2Icon,
   ShieldCheckIcon,
   ShieldExclamationIcon,
   ExclamationCircleIcon,
-  DocumentMagnifyingGlassIcon,
-  BuildingOffice2Icon,
-  UserCircleIcon,
+  SparklesIcon,
+  FireIcon,
 } from '@heroicons/react/24/outline';
 
 interface NavItem {
   name: string;
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & { title?: string; titleId?: string }>;
   count?: number;
 }
 
@@ -37,6 +37,7 @@ const navItems: NavItem[] = [
   { name: 'Defendant Structures', href: '/defendants', icon: BuildingOffice2Icon },
   // --- Existing deliverables ---
   { name: '2026 Developments', href: '/developments-2026', icon: SparklesIcon, count: 9 },
+  { name: 'Negligence Per Se', href: '/negligence-per-se', icon: FireIcon },
   { name: 'Compliance Gap', href: '/compliance-gap', icon: ShieldCheckIcon, count: 8 },
   { name: 'Attacks Ledger', href: '/attacks-ledger', icon: ShieldExclamationIcon, count: 7 },
   { name: 'ATA Landscape', href: '/ata-litigation-landscape', icon: ExclamationCircleIcon },
@@ -84,11 +85,13 @@ export function Sidebar() {
                   }`}
                 >
                   <item.icon className={`w-4 h-4 flex-shrink-0 ${
-                    isActive ? 'text-neutral-700' : 'text-neutral-400'
+                    isActive ? 'text-neutral-900' : 'text-neutral-400'
                   }`} />
-                  <span className="flex-1 truncate">{item.name}</span>
-                  {item.count && (
-                    <span className="text-2xs text-neutral-400">
+                  <span className="truncate">{item.name}</span>
+                  {item.count !== undefined && (
+                    <span className={`ml-auto text-2xs tabular-nums ${
+                      isActive ? 'text-neutral-500' : 'text-neutral-400'
+                    }`}>
                       {item.count}
                     </span>
                   )}
@@ -100,8 +103,12 @@ export function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="p-3 border-t border-neutral-200 text-2xs text-neutral-400">
-        <p>Sources: WSJ, IFMAT, Treasury</p>
+      <div className="p-3 border-t border-neutral-200">
+        <p className="text-2xs text-neutral-400 leading-relaxed">
+          Research aid only.
+          <br />
+          Not legal advice.
+        </p>
       </div>
     </aside>
   );
